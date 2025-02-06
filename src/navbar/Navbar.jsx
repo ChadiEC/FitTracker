@@ -6,7 +6,7 @@ function Navbar() {
         <div className='fixed-top'>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" >
         <div class="container-fluid ">
-          <a class="navbar-brand"><Link to="/">FitTracker</Link></a>
+          <a style={{border : "3px solid"}} class="navbar-brand"><Link to="/">FitTracker</Link></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -26,6 +26,9 @@ function Navbar() {
               </li>              
               <li class="nav-item">
                 <a class="nav-link"><Link to='/Entrainement'>Entrainement</Link></a>
+              </li>  
+              <li class="nav-item">
+                <a class="nav-link"><Link to='/Connexion'>Connexion</Link></a>
               </li>  
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

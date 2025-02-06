@@ -14,6 +14,7 @@ import Nutrition from './pages/Nutrition'
 import SousEntrainement1 from './pages/SousEntrainement1'
 import SousEntrainement2 from './pages/SousEntrainement2'
 import SousEntrainement3 from './pages/SousEntrainement3'
+import Connexion from './pages/Connexion'
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path='/Entrainement' element={<Entrainement />} />
           <Route path='/InfoSante' element={<InfoSante />} />
           <Route path='/Nutrition' element={<Nutrition />} />
+          <Route path='/Connexion' element={<Connexion />} />
           <Route path='/Entrainement/o1' element={<SousEntrainement1 />} />
           <Route path='/Entrainement/o2' element={<SousEntrainement2 />} />
           <Route path='/Entrainement/o3' element={<SousEntrainement3 />} />
