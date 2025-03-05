@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
     return (
-        <div className='fixed-top'>
+        <div className='navbar'>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" >
         <div class="container-fluid ">
           <a style={{border : "3px solid"}} class="navbar-brand"><Link to="/">FitTracker</Link></a>
