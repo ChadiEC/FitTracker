@@ -49,3 +49,40 @@ body, html {
 
 }
 
+.AboutUs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoSante{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nutrition{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.entrainement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.connexion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.coach{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.client{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

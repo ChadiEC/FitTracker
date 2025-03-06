@@ -3,8 +3,11 @@ import '../css/page.css';
 
 function AboutUs() {
     return (
-        <div>
-            <h1>Ceci sera la page about us</h1>
+        <div className='AboutUs'>
+            <div>
+                <h1>Ceci sera la page about us</h1>
+            </div>
+
         </div>
     );
 }

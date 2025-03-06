@@ -4,7 +4,7 @@ import '../css/page.css';
 function Connexion() {
     return (
 
-        <div>
+        <div className='connexion'>
 
             <div class="tab-content">
                 <div
