@@ -12,42 +12,48 @@ function Navbar() {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page"><Link to="/">Home</Link></a>
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page"><Link to="/">Home</Link></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link"><Link to='/About'>About Us</Link></a>
+              <li className="nav-item">
+                <a className="nav-link"><Link to='/About'>About Us</Link></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link"><Link to='/InfoSante'>Information santé</Link></a>
+              <li className="nav-item">
+                <a className="nav-link"><Link to='/InfoSante'>Information santé</Link></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link"><Link to='/Nutrition'>Nutrition</Link></a>
-              </li>              
-              <li class="nav-item">
-                <a class="nav-link"><Link to='/Entrainement'>Entrainement</Link></a>
-              </li>  
-              <li class="nav-item">
-                <a class="nav-link"><Link to='/Connexion'>Connexion</Link></a>
-              </li>  
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <li className="nav-item">
+                <a className="nav-link"><Link to='/Nutrition'>Nutrition</Link></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link"><Link to='/Entrainement'>Entrainement</Link></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link"><Link to='/DashboardClient'>DashboardClients</Link></a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link"><Link to='/Connexion'>Connexion</Link></a>
+              </li>
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false">
                   Inscription
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item"><Link to='/Coach'> Sign up as a coach</Link></a></li>
-                  
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item"><Link to='/Client'>Sign up as a client</Link></a></li>
+                  <li><a className="dropdown-item"><Link to='/Coach'> Sign up as a coach</Link></a></li>
+
+                  <li>
+                    <hr class="dropdown-divider"/>
+                  </li>
+                  <li><a className="dropdown-item"><Link to='/Client'>Sign up as a client</Link></a></li>
                 </ul>
               </li>
-           
+
             </ul>
-           
+
           </div>
         </div>
-      </nav>
-      </div>
+        </nav>
+        </div>
     );
 }
 

@@ -15,6 +15,7 @@ import SousEntrainement1 from './pages/SousEntrainement1'
 import SousEntrainement2 from './pages/SousEntrainement2'
 import SousEntrainement3 from './pages/SousEntrainement3'
 import Connexion from './pages/Connexion'
+import DashboardClient from "./pages/DashboardClient.jsx";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path='/Entrainement/o1' element={<SousEntrainement1 />} />
           <Route path='/Entrainement/o2' element={<SousEntrainement2 />} />
           <Route path='/Entrainement/o3' element={<SousEntrainement3 />} />
+          <Route path='/DashboardClient' element={<DashboardClient/>} />
 
         </Routes>
       </div>
