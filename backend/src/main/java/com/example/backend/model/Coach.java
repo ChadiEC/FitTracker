@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class Coach extends Personne {
+public class Coach {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCoach;

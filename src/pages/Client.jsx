@@ -17,10 +17,10 @@ function Client() {
 
     const submitNewClient = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8888/cl/createClient",client)
+        axios.post("http://localhost:8787/cl/createClient",client)
             .then(() =>{
 
-                navigate("/list")
+                navigate("/Connexion")
             }).catch((error) => {
             console.log(error)
         })

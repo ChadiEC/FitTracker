@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import tab from "bootstrap/js/src/tab.js";
+import {data} from "react-router-dom";
 
 
 function DashboardClient() {
@@ -12,31 +14,23 @@ function DashboardClient() {
             .catch(err => console.log)
     },[]);
 
+    const firstUser = tabUsers.length > 0 ? tabUsers[0] : null;
 
     return (
         <div>
-
-
-                {
-                    tabUsers.map((data, i) => (
-                        <tr key={i}>
-                            <th scope="row">{data.id}</th>
-                            <td>{data.name}</td>
-                            <td>{data.username}</td>
-                            <td>{data.email}</td>
-                            <td>{data.address.city}</td>
-                            <td>{data.address.geo.lng}</td>
-                        </tr>
-                    ))
-
-
-                }
-
-
-
-
+            {/* Afficher l'objet du premier utilisateur */}
+            {firstUser ? (
+                <div>
+                    <h2>{firstUser.name}</h2>
+                    <p>Email: {firstUser.email}</p>
+                    <p>Username: {firstUser.username}</p>
+                </div>
+            ) : (
+                <p>Chargement...</p>
+            )}
         </div>
     );
+
 }
 
 export default DashboardClient;

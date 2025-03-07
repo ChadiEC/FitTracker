@@ -11,6 +11,5 @@ public class Entrainement {
     private String nom;
     private String exercice;
 
-    @ManyToOne
-    Client client;
+
 }

@@ -10,6 +10,5 @@ public class PlanNutrition {
     private Long idPlanNutrition;
     private String plat;
 
-    @ManyToOne
-    Client client;
+
 }

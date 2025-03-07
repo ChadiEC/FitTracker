@@ -12,6 +12,5 @@ public class InfoClientInfo {
     private Double weight;
     private Long height;
 
-    @OneToOne
-    Client client;
+
 }

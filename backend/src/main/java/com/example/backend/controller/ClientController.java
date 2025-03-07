@@ -17,6 +17,7 @@ public class ClientController {
 
     @GetMapping("/getAllClients")
     public List<Client> getAll(){
+
         return repo.findAll();
     }
     @PostMapping("/createClient")
@@ -24,4 +25,9 @@ public class ClientController {
         repo.save(client);
         return client;
     }
+
+   // @GetMapping("/getUser")
+   // public Client getUser(@RequestBody Client client){
+    //}
+
 }
