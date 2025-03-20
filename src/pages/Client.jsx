@@ -9,7 +9,7 @@ function Client() {
         lname:"",
         email:"",
         address:"",
-        phone:"",
+        phoneNumber:"",
         postalCode:""
     });
 
@@ -70,13 +70,13 @@ function Client() {
                                                    value={client.address}/>
                         </div>
 
-                        <div className="mb-3"><label htmlFor="phone" className="form-label text-start d-block">
+                        <div className="mb-3"><label htmlFor="phoneNumber" className="form-label text-start d-block">
                             Numéro de téléphone
-                        </label> <input type="text" className="form-control" name="phone" id="phone"
+                        </label> <input type="text" className="form-control" name="phoneNumber" id="phoneNumber"
                                         placeholder="Entrez votre numéro de téléphone"
                                         //required pattern= "\(\d{3}\)\s*\d{3}-\d{4}"
                                         onChange={(e) => setAttribute(e)}
-                                        value={client.phone}/>
+                                        value={client.phoneNumber}/>
                         </div>
 
                         <div className="mb-3"><label htmlFor="codePostale" className="form-label text-start d-block">Code postale
