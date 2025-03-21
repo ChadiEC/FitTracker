@@ -16,6 +16,22 @@ public class Client  {
     private String postalCode;
     private String phoneNumber;
 
+    public InfoClientInfo getInfoClientInfo() {
+        return infoClientInfo;
+    }
+
+    public void setInfoClientInfo(InfoClientInfo infoClientInfo) {
+        this.infoClientInfo = infoClientInfo;
+    }
+
+    public Coach getCoach() {
+        return coach;
+    }
+
+    public void setCoach(Coach coach) {
+        this.coach = coach;
+    }
+
     public Long getIdClient() {
         return idClient;
     }
@@ -73,6 +89,13 @@ public class Client  {
     }
 
 
+    @OneToOne
+    @JoinColumn(name = "idInfoClient")
+    InfoClientInfo infoClientInfo;
+
+    @ManyToOne
+    @JoinColumn(name = "idCoach")
+    Coach coach;
 
 
 }

@@ -17,5 +17,81 @@ public class Coach {
     private boolean isMealTrainer;
     private boolean isWorkoutTrainer;
 
+    public InfoCoachInfo getInfoCoachInfo() {
+        return infoCoachInfo;
+    }
+
+    public void setInfoCoachInfo(InfoCoachInfo infoCoachInfo) {
+        this.infoCoachInfo = infoCoachInfo;
+    }
+
+    public Long getIdCoach() {
+        return idCoach;
+    }
+
+    public void setIdCoach(Long idCoach) {
+        this.idCoach = idCoach;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Long getNbrClient() {
+        return nbrClient;
+    }
+
+    public void setNbrClient(Long nbrClient) {
+        this.nbrClient = nbrClient;
+    }
+
+    public Long getAnneeExp() {
+        return anneeExp;
+    }
+
+    public void setAnneeExp(Long anneeExp) {
+        this.anneeExp = anneeExp;
+    }
+
+    public boolean isMealTrainer() {
+        return isMealTrainer;
+    }
+
+    public void setMealTrainer(boolean mealTrainer) {
+        isMealTrainer = mealTrainer;
+    }
+
+    public boolean isWorkoutTrainer() {
+        return isWorkoutTrainer;
+    }
+
+    public void setWorkoutTrainer(boolean workoutTrainer) {
+        isWorkoutTrainer = workoutTrainer;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "idCoachInfo")
+    InfoCoachInfo infoCoachInfo;
+
 
 }

@@ -3,20 +3,28 @@ package com.example.backend.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Personne {
+public class InfoCoachInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPersonne;
+    private Long idClientInfo;
     private String username;
     private String password;
 
-    public Long getIdPersonne() {
-        return idPersonne;
+    public Coach getCoach() {
+        return coach;
     }
 
-    public void setIdPersonne(Long idPersonne) {
-        this.idPersonne = idPersonne;
+    public void setCoach(Coach coach) {
+        this.coach = coach;
+    }
+
+    public Long getIdClientInfo() {
+        return idClientInfo;
+    }
+
+    public void setIdClientInfo(Long idClientInfo) {
+        this.idClientInfo = idClientInfo;
     }
 
     public String getUsername() {
@@ -35,14 +43,7 @@ public class Personne {
         this.password = password;
     }
 
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
     @OneToOne
-    Client client;
+    @JoinColumn(name = "idCoach")
+    Coach coach;
 }
