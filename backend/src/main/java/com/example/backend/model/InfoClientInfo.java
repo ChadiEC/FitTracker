@@ -1,5 +1,6 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -70,7 +71,6 @@ public class InfoClientInfo {
         this.height = height;
     }
 
-    @OneToOne
-    @JoinColumn(name = "idClient")
-    Client client;
+    @OneToOne(mappedBy = "infoClientInfo")
+    private Client client;
 }

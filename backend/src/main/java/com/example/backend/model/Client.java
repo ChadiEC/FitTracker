@@ -89,7 +89,7 @@ public class Client  {
     }
 
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idInfoClient")
     InfoClientInfo infoClientInfo;
 

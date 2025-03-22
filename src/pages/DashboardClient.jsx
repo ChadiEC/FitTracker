@@ -6,28 +6,30 @@ import {data} from "react-router-dom";
 
 function DashboardClient() {
 
-    const[tabUsers,setTabUsers] = useState([])
+    const[user,setUsers] = useState({})
+
+
 
     useEffect(() => {
-        axios.get("https://jsonplaceholder.typicode.com/users")
-            .then(res => setTabUsers(res.data))
-            .catch(err => console.log)
+
+
+        const username = localStorage.getItem("username")
+        const password = localStorage.getItem("password")
+
+        axios.get(`http://localhost:8787/cl/login?username=${username}&password=${password}`)
+            .then(res => {
+
+
+                setUsers(res.data);
+
+            })
     },[]);
 
-    const firstUser = tabUsers.length > 0 ? tabUsers[0] : null;
+
 
     return (
         <div>
-            {/* Afficher l'objet du premier utilisateur */}
-            {firstUser ? (
-                <div>
-                    <h2>{firstUser.name}</h2>
-                    <p>Email: {firstUser.email}</p>
-                    <p>Username: {firstUser.username}</p>
-                </div>
-            ) : (
-                <p>Chargement...</p>
-            )}
+            {user? <h1>Welcome {user.fname}</h1>: <h1>User Not Found</h1>}
         </div>
     );
 

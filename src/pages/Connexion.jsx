@@ -1,6 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 function Connexion() {
+
+    const [credentials ,setCredentials] = useState({
+        username: "",
+        password: ""
+    });
+
+    const setAttribute = (e) => {
+        const value = e.target.value;
+        setCredentials({...credentials,[e.target.name]:value})
+    }
+
+    const submitLogin = (e) =>{
+        e.preventDefault();
+        axios.get(`http://localhost:8787/cl/login?username=${credentials.username}&password=${credentials.password}`)
+            .then((res)=> {
+                const userData = {
+                    idClient: res.data.idClient,
+                    fname: res.data.fname,
+                    lname: res.data.lname,
+                    email: res.data.email,
+                    address: res.data.address,
+                    postalCode: res.data.postalCode,
+                    phoneNumber: res.data.phoneNumber
+                };
+                console.log(res.data.fname);
+                navigate("/DashboardClient")
+            })
+    }
+
+    const navigate = useNavigate();
     return (
 
         <div>
@@ -12,18 +44,22 @@ function Connexion() {
                     role="tabpanel"
                     aria-labelledby="tab-login">
                     <form>
-                        
+
 
 
                         <div data-mdb-input-init class="form-outline mb-4">
                             <label class="form-label" for="loginName">Adresse couriel</label>
-                            <input type="email" id="loginName" class="form-control" />
+                            <input name="username" type="email" id="loginName" class="form-control"
+                                   onChange={(e)=> setAttribute(e)}
+                                   value={credentials.username}/>
                         </div>
 
 
                         <div data-mdb-input-init class="form-outline mb-4">
                             <label class="form-label" for="loginPassword">Password</label>
-                            <input type="password" id="loginPassword" class="form-control" />
+                            <input name="password" type="password" id="loginPassword" class="form-control"
+                                   onChange={(e)=> setAttribute(e)}
+                                   value={credentials.password}/>
                         </div>
 
 
@@ -49,7 +85,7 @@ function Connexion() {
                         </div>
 
 
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Connexion</button>
+                        <button onClick={submitLogin} type="submit" class="btn btn-primary btn-block mb-4">Connexion</button>
 
 
                         <div class="text-center">

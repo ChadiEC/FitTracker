@@ -10,18 +10,38 @@ function Client() {
         email:"",
         address:"",
         phoneNumber:"",
-        postalCode:""
+        postalCode:"",
+        infoClientInfo: {
+            username: "",
+            password: ""
+        }
     });
 
     const setAttribute = (e) => {
-        const value = e.target.value;
-        setClient({...client,[e.target.name]:value})
-    }
+        const { name, value } = e.target;
+
+        setClient((prev) => {
+            // Check if the field belongs to infoClientInfo
+            if (["username", "password"].includes(name)) {
+                return {...prev, infoClientInfo: {...prev.infoClientInfo, [name]: value}};
+            } else {
+                return {...prev, [name]: value};
+            }
+        });
+    };
 
     const submitNewClient = (e) => {
         e.preventDefault();
         axios.post("http://localhost:8787/cl/createClient",client)
             .then(() =>{
+
+                    localStorage.setItem("username", client.infoClientInfo.username);
+                    localStorage.setItem("password", client.infoClientInfo.password);
+                    console.log("Saved username",localStorage.getItem("username",client.infoClientInfo.username))
+                    console.log("Saved password",localStorage.getItem("password",client.infoClientInfo.password))
+
+
+
 
                 navigate("/Connexion")
             }).catch((error) => {
@@ -65,26 +85,37 @@ function Client() {
                         <div className="mb-3"><label htmlFor="address" className="form-label text-start d-block">
                             Adresse
                         </label> <input type="text" className="form-control" name="address" id="address"
-                                                   placeholder="Entrez votre adresse"
-                                                   onChange={(e) => setAttribute(e)}
-                                                   value={client.address}/>
+                                        placeholder="Entrez votre adresse"
+                                        onChange={(e) => setAttribute(e)}
+                                        value={client.address}/>
                         </div>
 
                         <div className="mb-3"><label htmlFor="phoneNumber" className="form-label text-start d-block">
                             Numéro de téléphone
                         </label> <input type="text" className="form-control" name="phoneNumber" id="phoneNumber"
                                         placeholder="Entrez votre numéro de téléphone"
-                                        //required pattern= "\(\d{3}\)\s*\d{3}-\d{4}"
+                            //required pattern= "\(\d{3}\)\s*\d{3}-\d{4}"
                                         onChange={(e) => setAttribute(e)}
                                         value={client.phoneNumber}/>
                         </div>
 
-                        <div className="mb-3"><label htmlFor="codePostale" className="form-label text-start d-block">Code postale
+                        <div className="mb-3"><label htmlFor="codePostale" className="form-label text-start d-block">Code
+                            postale
                         </label> <input type="text" className="form-control" name="postalCode" id="postalCode"
                                         placeholder="Entrez votre code postale"
                                         required
                                         onChange={(e) => setAttribute(e)}
                                         value={client.postalCode}/>
+                        </div>
+                        <div className="mb-3"><label htmlFor="username" className="form-label text-start d-block">Username</label> <input type="text" className="form-control" name="username" id="username"
+                                                                                                                                          placeholder="Entrer votre username"
+                                                                                                                                          onChange={(e) => setAttribute(e)}
+                                                                                                                                          value={client.infoClientInfo.username}/>
+                        </div>
+                        <div className="mb-3"><label htmlFor="password" className="form-label text-start d-block">Password</label> <input type="text" className="form-control" name="password" id="password"
+                                                                                                                                          placeholder="Créer votre mdp"
+                                                                                                                                          onChange={(e) => setAttribute(e)}
+                                                                                                                                          value={client.infoClientInfo.password}/>
                         </div>
 
 
