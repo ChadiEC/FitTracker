@@ -1,54 +1,57 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 function Navbar() {
-    return (
-        <div className='navbar'>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" >
-        <div class="container-fluid ">
-          <a style={{border : "3px solid"}} class="navbar-brand"><Link to="/">FitTracker</Link></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+  return (
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <div className="container-fluid">
+          <Link to="/" className="navbar-brand" style={{ border: "3px solid" }}>FitTracker</Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page"><Link to="/">Home</Link></a>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link to="/" className="nav-link active">Home</Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link"><Link to='/About'>About Us</Link></a>
+              <li className="nav-item">
+                <Link to="/About" className="nav-link">About Us</Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link"><Link to='/InfoSante'>Information santé</Link></a>
+              <li className="nav-item">
+                <Link to="/InfoSante" className="nav-link">Information Santé</Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link"><Link to='/Nutrition'>Nutrition</Link></a>
-              </li>              
-              <li class="nav-item">
-                <a class="nav-link"><Link to='/Entrainement'>Entrainement</Link></a>
-              </li>  
-              <li class="nav-item">
-                <a class="nav-link"><Link to='/Connexion'>Connexion</Link></a>
-              </li>  
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <li className="nav-item">
+                <Link to="/Nutrition" className="nav-link">Nutrition</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/Entrainement" className="nav-link">Entrainement</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/Connexion" className="nav-link">Connexion</Link>
+              </li>
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Inscription
                 </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item"><Link to='/Coach'> Sign up as a coach</Link></a></li>
-                  
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item"><Link to='/Client'>Sign up as a client</Link></a></li>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link to="/Coach" className="dropdown-item">Sign up as a coach</Link>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <Link to="/Client" className="dropdown-item">Sign up as a client</Link>
+                  </li>
                 </ul>
               </li>
-           
             </ul>
-           
           </div>
         </div>
       </nav>
-      </div>
-    );
+  );
 }
 
 export default Navbar;
