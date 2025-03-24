@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-function Connexion() {
+function Connexion({setConnected}) {
 
     const [credentials ,setCredentials] = useState({
         username: "",
@@ -28,6 +28,8 @@ function Connexion() {
                     phoneNumber: res.data.phoneNumber
                 };
                 console.log(res.data.fname);
+                setConnected(true)
+
                 navigate("/DashboardClient")
             })
     }

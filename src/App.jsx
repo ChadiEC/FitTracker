@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import React from 'react'
+import React, {useState} from 'react'
 import './App.css'
 import Footer from './navbar/Footer'
 import Navbar from './navbar/Navbar'
@@ -20,7 +20,7 @@ import DashboardClient from "./pages/DashboardClient.jsx";
 
 function App() {
 
-
+const [connected,setConnected]=useState(false);
   return (
     
     <BrowserRouter>
@@ -32,16 +32,16 @@ function App() {
 
           <Route path='/About' element={<AboutUs />} />
           <Route path='/Coach' element={<Coach />} />
-          <Route path='/Client' element={<Client />} />
+          <Route path='/Client' element={<Client setConnected={setConnected} />} />
           <Route path='/Inscription' element={<Inscription />} />
           <Route path='/Entrainement' element={<Entrainement />} />
           <Route path='/InfoSante' element={<InfoSante />} />
           <Route path='/Nutrition' element={<Nutrition />} />
-          <Route path='/Connexion' element={<Connexion />} />
+          <Route path='/Connexion' element={<Connexion setConnected={setConnected} />} />
           <Route path='/Entrainement/o1' element={<SousEntrainement1 />} />
           <Route path='/Entrainement/o2' element={<SousEntrainement2 />} />
           <Route path='/Entrainement/o3' element={<SousEntrainement3 />} />
-          <Route path='/DashboardClient' element={<DashboardClient/>} />
+          <Route path='/DashboardClient' element={<DashboardClient connected={connected} setConnected={setConnected}/>} />
 
         </Routes>
       </div>

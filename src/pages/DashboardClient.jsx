@@ -1,12 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import tab from "bootstrap/js/src/tab.js";
-import {data} from "react-router-dom";
+import {data, useNavigate} from "react-router-dom";
+import {Button} from "react-bootstrap";
 
 
-function DashboardClient() {
+function DashboardClient({connected,setConnected}) {
 
     const[user,setUsers] = useState({})
+
+
+    const navigate = useNavigate();
+
+    if (!connected){
+
+        return null
+    }
 
 
 
@@ -20,6 +29,8 @@ function DashboardClient() {
             .then(res => {
 
 
+
+
                 setUsers(res.data);
 
             })
@@ -27,10 +38,23 @@ function DashboardClient() {
 
 
 
+
+    const Logout = (e) =>{
+            setConnected(false)
+            navigate("/Connexion")
+    }
+
+
     return (
+        <>
+
         <div>
             {user? <h1>Welcome {user.fname}</h1>: <h1>User Not Found</h1>}
         </div>
+            <div>
+                <Button onClick={Logout}>Logout</Button>
+            </div>
+        </>
     );
 
 }

@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-function Client() {
+function Client({setConnected}) {
 
     const [client, setClient] = useState({
         fname:"",
@@ -50,7 +50,7 @@ function Client() {
                     console.log("Saved password",localStorage.getItem("password",client.infoClientInfo.password))
 
 
-
+              setConnected(true)
 
                 navigate("/DashboardClient")
             }).catch((error) => {
