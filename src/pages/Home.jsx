@@ -1,7 +1,13 @@
 import React from 'react';
-import Img1 from '../image/greyBackground.jpg'
-import Img2 from '../image/A_black_image.jpg'
-import  img from '../image/inscriptionImange.jpg'
+import Img1 from '../image/GYM.jpg'
+import Img2 from '../image/carou4.jpg'
+import Img3 from '../image/carou5.jpg'
+import Img4 from '../image/carou6.jpg'
+import Img5 from '../image/carou7.jpg'
+import Img6 from '../image/carou8.jpg'
+import Img7 from '../image/cercle1.jpg'
+import Img8 from '../image/cercle2.jpg'
+import Img9 from '../image/cercle3.jpg'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
@@ -20,32 +26,32 @@ function Home() {
                 </ol>
                 <div className="carousel-inner" >
                     <div className="carousel-item active" style={{ height: "700px" }}>
-                        <img src="" className="d-block w-100" alt="First slide"/>
+                        <img src={Img1} className="d-block w-100" alt="First slide"/>
                         <div className="container">
                             <div className="carousel-caption text-start">
-                                <h1>Example headline.</h1>
-                                <p>Some representative placeholder content for the first slide.</p>
-                                <p><a className="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                                <h1>Des entraînements adaptés à votre niveau et vos objectifs</h1>
+                                <p>Notre algorithme analyse vos besoins et génère un plan d'entraînement personnalisé pour maximiser vos résultats.</p>
+                                <p><a className="btn btn-lg btn-primary" href="#">Commencez dès maintenant</a></p>
                             </div>
                         </div>
                     </div>
                     <div className="carousel-item" style={{ height: "700px" }}>
-                        <img src="https://via.placeholder.com/1920x600" className="d-block w-100" alt="Second slide"/>
+                        <img src={Img2} className="d-block w-100" alt="Second slide"/>
                         <div className="container">
                             <div className="carousel-caption">
-                                <h1>Another example headline.</h1>
-                                <p>Some representative placeholder content for the second slide.</p>
-                                <p><a className="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                                <h1>Optimisez le suivi de vos clients</h1>
+                                <p>Invitez vos clients, créez des plans d'entraînement sur mesure et suivez leur progression en toute simplicité.</p>
+                                <p><a className="btn btn-lg btn-primary" href="#">En savoir plus</a></p>
                             </div>
                         </div>
                     </div>
                     <div className="carousel-item" style={{ height: "700px" }}>
-                        <img src="https://via.placeholder.com/1920x600" className="d-block w-100" alt="Third slide"/>
+                        <img src={Img3} className="d-block w-100" alt="Third slide"/>
                         <div className="container">
                             <div className="carousel-caption text-end">
-                                <h1>One more for good measure.</h1>
-                                <p>Some representative placeholder content for the third slide.</p>
-                                <p><a className="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                                <h1>Alimentation et entraînement : le duo gagnant</h1>
+                                <p>Découvrez des suggestions de repas équilibrés en fonction de vos objectifs de performance et de bien-être.</p>
+                                <p><a className="btn btn-lg btn-primary" href="#">Voir les recommandations</a></p>
                             </div>
                         </div>
                     </div>
@@ -62,79 +68,74 @@ function Home() {
 
             <div className="container d-flex flex-column align-items-center">
 
-                <div className="row featurette text-center">
+                <div className="row featurette text-center text-black">
                     <div className="col-md-7">
-                        <h2 className="featurette-heading">First featurette heading. <span className="text-muted">It'll blow your mind.</span>
+                        <h2 className="featurette-heading">Un programme conçu pour vous. <span className="text-muted">Adapté à votre rythme et vos objectifs.</span>
                         </h2>
-                        <p className="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula
-                            porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                            Fusce dapibus, tellus ac cursus commodo.</p>
+
+                        <h3 className="lead">Obtenez un plan d'entraînement sur-mesure basé sur votre niveau et vos
+                            objectifs. Chaque séance est adaptée pour maximiser vos performances et votre
+                            progression..</h3>
                     </div>
                     <div className="col-md-5">
-                        <img className="featurette-image img-fluid mx-auto" src={img}
+                        <img className="featurette-image img-fluid mx-auto" src={Img4}
                              alt="500x500"/>
                     </div>
                 </div>
                 <hr className="featurette-divider mx-auto" style={{width: "50%"}}/>
-                <div className="row bg-white">
+                <div className="row bg-white text-center">
                     <div className="col-lg-4">
                         <img className="rounded-circle"
-                             src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                             alt="Generic placeholder image" width="140" height="140"/>
-                        <h2>Heading</h2>
-                        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh
-                            ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                            Praesent commodo cursus magna.</p>
-                        <p><a className="btn btn-secondary" href="#" role="button">View details »</a></p>
+                             src={Img7}
+                             alt="Plan d'entraînement" width="240" height="240"/>
+                        <h2>Des entraînements adaptés</h2>
+                        <p>Générez un programme sur mesure en fonction de votre niveau et de vos objectifs.</p>
+                        <p><a className="btn btn-secondary" href="#" role="button">Découvrir »</a></p>
                     </div>
                     <div className="col-lg-4">
                         <img className="rounded-circle"
-                             src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                             alt="Generic placeholder image" width="140" height="140"/>
-                        <h2>Heading</h2>
-                        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec
-                            elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus
-                            commodo, tortor mauris condimentum nibh.</p>
-                        <p><a className="btn btn-secondary" href="#" role="button">View details »</a></p>
+                             src={Img8}
+                             alt="Suivi des performances" width="240" height="240"/>
+                        <h2>Analysez vos progrès</h2>
+                        <p>Suivez votre évolution avec des statistiques détaillées et atteignez vos objectifs plus
+                            rapidement.</p>
+                        <p><a className="btn btn-secondary" href="#" role="button">En savoir plus »</a></p>
                     </div>
                     <div className="col-lg-4">
                         <img className="rounded-circle"
-                             src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                             alt="Generic placeholder image" width="140" height="140"/>
-                        <h2>Heading</h2>
-                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum
-                            id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                            condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                        <p><a className="btn btn-secondary" href="#" role="button">View details »</a></p>
+                             src={Img9}
+                             alt="Nutrition optimisée" width="240" height="240"/>
+                        <h2>Une alimentation optimisée</h2>
+                        <p>Recevez des suggestions de repas adaptés à vos entraînements pour de meilleurs résultats.</p>
+                        <p><a className="btn btn-secondary" href="#" role="button">Voir les conseils »</a></p>
                     </div>
                 </div>
 
 
                 <hr className="featurette-divider mx-auto" style={{width: "50%"}}/>
                 <div className="row featurette bg-white text-black text-center">
-                    <div className="col-md-7">
-                        <h2 className="featurette-heading">And lastly, this one. <span
-                            className="text-muted">Checkmate.</span></h2>
-                        <p className="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula
-                            porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                            Fusce dapibus, tellus ac cursus commodo.</p>
-                    </div>
                     <div className="col-md-5">
-                        <img className="featurette-image img-fluid mx-auto" src="https://via.placeholder.com/500"
+                        <img className="featurette-image img-fluid mx-auto" src={Img5}
                              alt="500x500"/>
                     </div>
+                    <div className="col-md-7">
+                        <h2 className="featurette-heading">Un espace dédié aux coachs. <span
+                            className="text-muted">Simplifiez la gestion de vos clients.</span></h2>
+                        <h3 className="lead">Invitez vos clients, attribuez-leur des plans personnalisés et suivez leurs
+                            progrès en temps réel avec notre interface intuitive.</h3>
+                    </div>
+
                 </div>
                 <hr className="featurette-divider mx-auto" style={{width: "50%"}}/>
-                <div className="row featurette bg-white text-black-20 text-center">
+                <div className="row featurette bg-white text-black-20 text-center text-black">
                     <div className="col-md-7">
-                        <h2 className="featurette-heading">Oh yeah, it's that good. <span className="text-muted">See for yourself.</span>
+                        <h2 className="featurette-heading">Mangez mieux, performez mieux. <span className="text-muted">Une nutrition adaptée à vos objectifs.</span>
                         </h2>
-                        <p className="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula
-                            porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                            Fusce dapibus, tellus ac cursus commodo.</p>
+                        <h3 className="lead">Optimisez votre alimentation avec des recommandations basées sur vos
+                            besoins énergétiques et vos objectifs de remise en forme.</h3>
                     </div>
                     <div className="col-md-5">
-                        <img className="featurette-image img-fluid mx-auto" src={img}
+                        <img className="featurette-image img-fluid mx-auto" src={Img6}
                              alt="500x500"/>
                     </div>
                 </div>
