@@ -24,6 +24,11 @@ public class ClientController {
 
         return repo.findAll();
     }
+
+    @GetMapping("/getClient")
+    public Client getClient(@RequestParam String password){
+        return repo.findClientsByInfoClientInfo_Password(password);
+    }
     @PostMapping("/createClient")
     public Client addNewCustomer (@RequestBody Client client){
         repo.save(client);
@@ -35,11 +40,14 @@ public class ClientController {
    // public Client getUser(@RequestBody Client client){
     //}
     @GetMapping("/login")
-    public Client getUser(@RequestParam String username, @RequestParam String password){
+    public Boolean getUser(@RequestParam String username, @RequestParam String password){
         if (service.login(username,password)){
-            return repo.findClientsByInfoClientInfo_Username(username);
+            return true;
 
         }
-        return null;
+        else {
+            return false;
+        }
+
     }
 }

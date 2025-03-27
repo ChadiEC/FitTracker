@@ -28,9 +28,10 @@ public class ClientService {
     }
 
     public boolean login (String username, String frontEndPwd){
-        Client client = clientRepository.findClientsByInfoClientInfo_Username(username);
+        Client clientUsername = clientRepository.findClientsByInfoClientInfo_Username(username);
+        Client clientPassword = clientRepository.findClientsByInfoClientInfo_Password(frontEndPwd);
 
-        if (client.getInfoClientInfo().getPassword().equals(frontEndPwd)){
+        if (clientPassword.getInfoClientInfo().getPassword().equals(frontEndPwd) && (clientUsername.getInfoClientInfo().getUsername().equals(username))){
             return true;
         }
         return false;

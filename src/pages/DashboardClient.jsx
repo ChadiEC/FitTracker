@@ -14,7 +14,7 @@ function DashboardClient({connected,setConnected}) {
 
     if (!connected){
 
-        return null
+        return "connectez vous"
     }
 
 
@@ -25,7 +25,7 @@ function DashboardClient({connected,setConnected}) {
         const username = localStorage.getItem("username")
         const password = localStorage.getItem("password")
 
-        axios.get(`http://localhost:8787/cl/login?username=${username}&password=${password}`)
+        axios.get(`http://localhost:8787/cl/getClient?password=${password}`)
             .then(res => {
 
 

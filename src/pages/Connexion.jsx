@@ -14,24 +14,24 @@ function Connexion({setConnected}) {
         setCredentials({...credentials,[e.target.name]:value})
     }
 
-    const submitLogin = (e) =>{
+    const submitLogin = async (e) =>{
         e.preventDefault();
-        axios.get(`http://localhost:8787/cl/login?username=${credentials.username}&password=${credentials.password}`)
-            .then((res)=> {
-                const userData = {
-                    idClient: res.data.idClient,
-                    fname: res.data.fname,
-                    lname: res.data.lname,
-                    email: res.data.email,
-                    address: res.data.address,
-                    postalCode: res.data.postalCode,
-                    phoneNumber: res.data.phoneNumber
-                };
-                console.log(res.data.fname);
+        try {
+            const response = await axios.get(`http://localhost:8787/cl/login?username=${credentials.username}&password=${credentials.password}`)
+            if (response.data){
                 setConnected(true)
-
                 navigate("/DashboardClient")
-            })
+            }
+            else {
+                console.log("Login failed");
+
+            }
+        }catch (err){
+            console.error("Login failed", err);
+        }
+
+
+
     }
 
     const navigate = useNavigate();
