@@ -1,67 +1,147 @@
-import React from 'react';
+import React, {useState} from 'react';
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
-function Coach() {
+function Coach({setConnected}) {
+
+    const [coach, setCoach] = useState({
+        fname: "",
+        lname: "",
+        email: "",
+        nbrClient:"",
+        anneeExp:"",
+        infoCoachInfo: {
+            username: "",
+            password: ""
+        }
+    });
+    const setAttribute = (e) => {
+        const { name, value } = e.target;
+
+        setCoach((prev) => {
+            if (["username", "password"].includes(name)) {
+                return {...prev, infoCoachInfo: {...prev.infoCoachInfo, [name]: value}};
+            } else {
+                return {...prev, [name]: value};
+            }
+        });
+    };
+
+    const [step, setStep] = useState(1);
+
+    const handleFirstSubmit = (e) => {
+        e.preventDefault();
+        localStorage.setItem("username", coach.infoCoachInfo.username);
+        localStorage.setItem("password", coach.infoCoachInfo.password);
+        setStep(2); // Passe au formulaire suivant
+    };
+
+    const submitNewCoach = (e) => {
+        e.preventDefault();
+        axios.post("http://localhost:8787/clCoach/createCoach", coach)
+            .then(() => {
+
+
+                console.log("Saved username", localStorage.getItem("username", coach.infoCoachInfo.username))
+                console.log("Saved password", localStorage.getItem("password", coach.infoCoachInfo.password))
+
+
+                setConnected(true)
+
+                navigate("/DashboardCoach")
+            }).catch((error) => {
+            console.log(error)
+        })
+    }
+
+    const navigate = useNavigate();
+
     return (
 
-        < div >
-            < form >
-            <h3>Incription en tant que coach</h3><br/>
-                <div class="row mb-4">
-                    <div class="col">
-                        <div data-mdb-input-init class="form-outline">
-                            <label class="form-label" for="form6Example1">Nom</label>
-                            <input type="text" id="form6Example1" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div data-mdb-input-init class="form-outline">
-                            <label class="form-label" for="form6Example2">Prénom</label>
-                            <input type="text" id="form6Example2" class="form-control" />
-                        </div>
-                    </div>
-                </div>
+        <div className="container mt-5">
+
+            <div className="row justify-content-lg-start">
+
+                <div className="col-md-6"><h2 className="mb-4">User Information</h2>
+                    {step === 1 ? (
+                        <form className="form-detail" onSubmit={handleFirstSubmit}>
 
 
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form6Example3">Adresse couriel</label>
-                    <input type="text" id="form6Example3" class="form-control" />
-
-                </div>
-
-
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form6Example4">Adresse </label>
-                    <input type="text" id="form6Example4" class="form-control" />
-                    
-                </div>
-
-
-                <div data-mdb-input-init class="form-outline mb-4">
-                    <label class="form-label" for="form6Example5">Code postal</label>
-                    <input type="email" id="form6Example5" class="form-control" />
-                    
-                </div>
+                            <div className="mb-3"><label htmlFor="username" className="form-label text-start d-block">Username</label>
+                                <input type="text" className="form-control"
+                                       name="username" id="username"
+                                       placeholder="Entrer votre username"
+                                       onChange={(e) => setAttribute(e)}
+                                       value={coach.infoCoachInfo.username}/>
+                            </div>
+                            <div className="mb-3"><label htmlFor="password" className="form-label text-start d-block">Password</label>
+                                <input type="text" className="form-control"
+                                       name="password" id="password" placeholder="Créer votre mdp"
+                                       onChange={(e) => setAttribute(e)}
+                                       value={coach.infoCoachInfo.password}/>
+                            </div>
 
 
-                <div data-mdb-input-init class="form-outline mb-4">
-                <label class="form-label" for="form6Example6">Phone</label>
-                    <input type="number" id="form6Example6" class="form-control" />
-                    
-                </div>
+                            <button type="submit" className="btn btn-primary">Submit</button>
+
+                        </form>
+                    ): (
+                        <form className="form-detail" onSubmit={(e) => submitNewCoach(e)} method="post">
+
+                            <div className="mb-3 "><label htmlFor="lastname" className="form-label text-start d-block">Last
+                                Name</label> <input type="text" className="form-control" name="lname" id="lastname"
+                                                    placeholder="Entrer votre nom"
+                                                    onChange={(e) => setAttribute(e)}
+                                                    value={coach.lname}/>
+                            </div>
+
+                            <div className="mb-3"><label htmlFor="firstname" className="form-label text-start d-block">First
+                                Name</label> <input type="text" className="form-control" name="fname" id="firstname"
+                                                    placeholder="Entrer votre prénom"
+                                                    onChange={(e) => setAttribute(e)}
+                                                    value={coach.fname}/>
+                            </div>
+
+                            <div className="mb-3"><label htmlFor="email"
+                                                         className="form-label text-start d-block">Email</label> <input
+                                type="email" className="form-control" name="email" id="email"
+                                placeholder="Entrer votre email"
+                                required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" onChange={(e) => setAttribute(e)}
+                                value={coach.email}/>
+                            </div>
+
+                            <div className="mb-3"><label htmlFor="nbrClient" className="form-label text-start d-block">
+                                nbrClient
+                            </label> <input type="text" className="form-control" name="nbrClient" id="nbrClient"
+                                            placeholder="Entrez votre nbrClient"
+                                            onChange={(e) => setAttribute(e)}
+                                            value={coach.nbrClient}/>
+                            </div>
+
+                            <div className="mb-3"><label htmlFor="anneeExp"
+                                                         className="form-label text-start d-block">
+                                anneeExp
+                            </label> <input type="text" className="form-control" name="anneeExp" id="anneeExp"
+                                            placeholder="Entrez votre anneeExp"
+                                //required pattern= "\(\d{3}\)\s*\d{3}-\d{4}"
+                                            onChange={(e) => setAttribute(e)}
+                                            value={coach.anneeExp}/>
+                            </div>
 
 
-                <div data-mdb-input-init class="form-outline mb-4">
-                <label class="form-label" for="form6Example7">Information additionnel</label>
-                    <textarea class="form-control" id="form6Example7" rows="4"></textarea>
-                    
-                </div>
+
+                                <button type="submit" className="btn btn-primary">Submit</button>
 
 
-                <button data-mdb-ripple-init type="button" class="btn btn-primary btn-block mb-4">Envoyer</button>
-            </form >
-        </div >
+                        </form>
 
-    );
+                        )}
+
+                < /div>
+            </div>
+        </div>
+)
+
 }
 
 export default Coach;

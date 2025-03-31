@@ -12,8 +12,9 @@ public class Coach {
     private String fname;
     private String lname;
     private String email;
-    private Long nbrClient;
-    private Long anneeExp;
+    private String nbrClient;
+    private String  anneeExp;
+
     private boolean isMealTrainer;
     private boolean isWorkoutTrainer;
 
@@ -57,19 +58,19 @@ public class Coach {
         this.email = email;
     }
 
-    public Long getNbrClient() {
+    public String getNbrClient() {
         return nbrClient;
     }
 
-    public void setNbrClient(Long nbrClient) {
+    public void setNbrClient(String nbrClient) {
         this.nbrClient = nbrClient;
     }
 
-    public Long getAnneeExp() {
+    public String getAnneeExp() {
         return anneeExp;
     }
 
-    public void setAnneeExp(Long anneeExp) {
+    public void setAnneeExp(String anneeExp) {
         this.anneeExp = anneeExp;
     }
 
@@ -89,7 +90,7 @@ public class Coach {
         isWorkoutTrainer = workoutTrainer;
     }
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idCoachInfo")
     InfoCoachInfo infoCoachInfo;
 

@@ -30,6 +30,10 @@ function Navbar() {
               <li className="nav-item">
                 <a className="nav-link"><Link to='/DashboardClient'>DashboardClients</Link></a>
               </li>
+
+              <li className="nav-item">
+                <a className="nav-link"><Link to='/DashboardCoach'>DashboardCoach</Link></a>
+              </li>
               <li className="nav-item">
                 <a className="nav-link"><Link to='/Connexion'>Connexion</Link></a>
               </li>

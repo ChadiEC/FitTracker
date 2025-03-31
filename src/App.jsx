@@ -16,6 +16,8 @@ import SousEntrainement2 from './pages/SousEntrainement2'
 import SousEntrainement3 from './pages/SousEntrainement3'
 import Connexion from './pages/Connexion'
 import DashboardClient from "./pages/DashboardClient.jsx";
+import DashboardCoach from './pages/DashboardCoach';
+
 
 
 function App() {
@@ -31,7 +33,7 @@ const [connected,setConnected]=useState(false);
           <Route path='/' element={<Home />} />
 
           <Route path='/About' element={<AboutUs />} />
-          <Route path='/Coach' element={<Coach />} />
+          <Route path='/Coach' element={<Coach setConnected={setConnected} />} />
           <Route path='/Client' element={<Client setConnected={setConnected} />} />
           <Route path='/Inscription' element={<Inscription />} />
           <Route path='/Entrainement' element={<Entrainement />} />
@@ -42,6 +44,7 @@ const [connected,setConnected]=useState(false);
           <Route path='/Entrainement/o2' element={<SousEntrainement2 />} />
           <Route path='/Entrainement/o3' element={<SousEntrainement3 />} />
           <Route path='/DashboardClient' element={<DashboardClient connected={connected} setConnected={setConnected}/>} />
+          <Route path='/DashboardCoach' element={<DashboardCoach connected={connected} setConnected={setConnected}/>} />
 
         </Routes>
       </div>

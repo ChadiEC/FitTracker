@@ -1,6 +1,7 @@
 package com.example.backend.controller;
 
 import com.example.backend.model.Client;
+import com.example.backend.model.Coach;
 import com.example.backend.repositories.ClientRepository;
 import com.example.backend.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,9 @@ import java.util.List;
 @RequestMapping("/cl")
 @CrossOrigin
 public class ClientController {
+
+    @Autowired
+    ClientRepository coachRepo;
 
     @Autowired
     ClientRepository repo;
@@ -35,6 +39,7 @@ public class ClientController {
         System.out.println("Received client: " + client);
         return client;
     }
+
 
    // @GetMapping("/getUser")
    // public Client getUser(@RequestBody Client client){
