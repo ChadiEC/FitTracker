@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import {BrowserRouter, Routes, Route, useLocation} from 'react-router-dom'
 import React, {useState} from 'react'
 import './App.css'
 import Footer from './navbar/Footer'
@@ -23,10 +23,14 @@ import DashboardCoach from './pages/DashboardCoach';
 function App() {
 
 const [connected,setConnected]=useState(false);
+
+
+  const hideNavbar = location.pathname === "/DashboardClient";
   return (
-    
+
     <BrowserRouter>
-      <Navbar />
+
+      <Navbar/>
 
       <div>
         <Routes>
