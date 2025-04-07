@@ -8,7 +8,8 @@ function Connexion({ setConnected }) {
         password: "",
     });
 
-    const [isCoach, setIsCoach] = useState(false); // State for the checkbox
+    const [isCoach, setIsCoach] = useState(false);
+    const [isInvalidCredential, setIsInvalidCredential] = useState(false);
 
     const setAttribute = (e) => {
         const value = e.target.value;
@@ -36,13 +37,12 @@ function Connexion({ setConnected }) {
                 } else {
                     navigate("/DashboardClient");
                 }
-            } else {
-                console.log("Login failed");
-                alert("Login failed");
             }
         } catch (err) {
             console.error("Login failed", err);
-            alert("An error occurred. Please try again.");
+
+            setIsInvalidCredential(true)
+
         }
     };
 
@@ -63,6 +63,7 @@ function Connexion({ setConnected }) {
                                 Username
                             </label>
                             <input
+                                style={isInvalidCredential ? {border:"1px solid red"} : {border:"default"}}
                                 name="username"
                                 type="username"
                                 id="loginName"
@@ -72,11 +73,13 @@ function Connexion({ setConnected }) {
                             />
                         </div>
 
+
                         <div data-mdb-input-init class="form-outline mb-4">
                             <label class="form-label" for="loginPassword">
                                 Password
                             </label>
                             <input
+                                style={isInvalidCredential ? {border:"1px solid red"} : {border:"default"}}
                                 name="password"
                                 type="password"
                                 id="loginPassword"
@@ -85,7 +88,7 @@ function Connexion({ setConnected }) {
                                 value={credentials.password}
                             />
                         </div>
-
+                        {isInvalidCredential && <p style={{color:"red", textAlign:"start"}}> Invalid Username</p>}
                         <div class="row mb-4">
                             <div class="col-md-6 d-flex justify-content-center">
                                 <div class="form-check mb-3 mb-md-0">
