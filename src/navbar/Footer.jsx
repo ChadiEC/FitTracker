@@ -2,6 +2,7 @@ import React from 'react';
 
 function Footer() {
     return (
+        <div className="footer">
         <div className="fixed-bottom">
         <footer class="bg-secondary">
             <div class="container">
@@ -17,6 +18,7 @@ function Footer() {
             </div>
         </footer>
     </div>
+        </div>
     );
 }
 
