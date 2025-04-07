@@ -615,22 +615,20 @@ h1, .h1 {
     left: -125px;
 }
 
-/* Add these styles for the icons */
-/* Add these styles to your existing CSS */
-.dashboard-nav.closed .dashboard-nav-item { /* Reduced padding */
-    justify-content: center;  /* Center the icon */
+
+.dashboard-nav.closed .dashboard-nav-item {
+    justify-content: center;
 }
 
 .dashboard-nav.closed .dashboard-nav-item i  {
 
     width: 36px;
     margin-left: 0px;
-    margin-right: -40px;  /* Remove right margin */
+    margin-right: -40px;
     font-size: 31px;
     padding: 20px;
 }
 
-/* Make sure the content takes minimal space */
 .dashboard-nav.closed .dashboard-nav-item span {
     display: none;
     width: 0;
@@ -643,8 +641,21 @@ h1, .h1 {
     overflow: hidden;
 }
 
-/* Keep the brand logo itself visible */
+
 .dashboard-nav.closed .brand-logo {
     justify-content: center;
     padding: 0 10px;
 }
+
+.Container-Home{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Container{
+    display: flex;
+    justify-content: center;
+    width: calc(100% - 90px);
+    height: 100rem;
+}
+

@@ -17,6 +17,8 @@ import SousEntrainement3 from './pages/SousEntrainement3'
 import Connexion from './pages/Connexion'
 import DashboardClient from "./pages/DashboardClient.jsx";
 import DashboardCoach from './pages/DashboardCoach';
+import Profile from "./pages/Profile.jsx";
+import SideBar from "./navbar/SideBar.jsx";
 
 
 
@@ -25,7 +27,7 @@ function App() {
 const [connected,setConnected]=useState(false);
 
 
-  const hideNavbar = location.pathname === "/DashboardClient";
+
   return (
 
     <BrowserRouter>
@@ -49,6 +51,8 @@ const [connected,setConnected]=useState(false);
           <Route path='/Entrainement/o3' element={<SousEntrainement3 />} />
           <Route path='/DashboardClient' element={<DashboardClient connected={connected} setConnected={setConnected}/>} />
           <Route path='/DashboardCoach' element={<DashboardCoach connected={connected} setConnected={setConnected}/>} />
+          <Route path='/Profile' element={<Profile/>} />
+          <Route path='/SideBar' element={<SideBar setConnected={setConnected} />} />
 
         </Routes>
       </div>
