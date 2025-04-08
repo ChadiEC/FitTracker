@@ -6,7 +6,7 @@ import '../css/DashboardClient.css';
 import SideBar from "../navbar/SideBar.jsx";
 
 // eslint-disable-next-line react/prop-types
-function DashboardClient({ connected }) {
+function DashboardClient({ connected,setConnected }) {
     const [user, setUsers] = useState({});
 
 
@@ -22,6 +22,8 @@ function DashboardClient({ connected }) {
         axios.get(`http://localhost:8787/cl/getClient?password=${password}`)
             .then(res => {
                 setUsers(res.data);
+                setConnected(true);
+
             });
     }, []);
 
@@ -30,11 +32,17 @@ function DashboardClient({ connected }) {
     return (
         <>
             <style>{`
+                 #root {
+                         max-width: 1280px;
+                         margin: 0 auto;
+                         padding: 2rem;
+                         text-align: center;
+                        }
                 .navbar { display: none; }
                 .footer {display: none;}
             `}</style>
             <div className="Container-Home">
-                <SideBar/>
+                <SideBar setConnected={setConnected}/>
 
                 <div className='dashboard-app'>
 

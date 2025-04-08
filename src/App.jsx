@@ -19,6 +19,9 @@ import DashboardClient from "./pages/DashboardClient.jsx";
 import DashboardCoach from './pages/DashboardCoach';
 import Profile from "./pages/Profile.jsx";
 import SideBar from "./navbar/SideBar.jsx";
+import MealPlan from "./pages/MealPlan.jsx";
+import Settings from "./pages/Settings.jsx";
+import Workout from "./pages/Workout.jsx";
 
 
 
@@ -51,12 +54,15 @@ const [connected,setConnected]=useState(false);
           <Route path='/Entrainement/o3' element={<SousEntrainement3 />} />
           <Route path='/DashboardClient' element={<DashboardClient connected={connected} setConnected={setConnected}/>} />
           <Route path='/DashboardCoach' element={<DashboardCoach connected={connected} setConnected={setConnected}/>} />
-          <Route path='/Profile' element={<Profile/>} />
+          <Route path='/DashboardClient/Profile' element={<Profile connected={connected} setConnected={setConnected}/>} />
+          <Route path='/DashboardClient/Workout' element={<Workout connected={connected} setConnected={setConnected}/>} />
+          <Route path='/DashboardClient/MealPlan' element={<MealPlan connected={connected} setConnected={setConnected}/>} />
+          <Route path='/DashboardClient/Settings' element={<Settings connected={connected} setConnected={setConnected}/>} />
           <Route path='/SideBar' element={<SideBar setConnected={setConnected} />} />
 
         </Routes>
       </div>
-      
+
       <Footer />
     </BrowserRouter>
   )

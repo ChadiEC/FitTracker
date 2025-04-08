@@ -1,13 +1,12 @@
 import React from 'react';
 import SideBar from "../navbar/SideBar.jsx";
 
-function Profile({connected, setConnected}) {
+function MealPlan({connected, setConnected}) {
     if (!connected) {
         return "Connectez-vous";
     }
     return (
         <>
-
             <style>{`
                 .navbar { display: none; }
                 .footer {display: none;}
@@ -22,4 +21,4 @@ function Profile({connected, setConnected}) {
     );
 }
 
-export default Profile;
+export default MealPlan;

@@ -1,147 +1,173 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "../css/Coach.css"; // ✅ Imported like Client.css
 
-function Coach({setConnected}) {
-
+function Coach({ setConnected }) {
     const [coach, setCoach] = useState({
         fname: "",
         lname: "",
         email: "",
-        nbrClient:"",
-        anneeExp:"",
+        nbrClient: "",
+        anneeExp: "",
         infoCoachInfo: {
             username: "",
-            password: ""
-        }
+            password: "",
+        },
     });
+
+    const [step, setStep] = useState(1);
+    const navigate = useNavigate();
+
     const setAttribute = (e) => {
         const { name, value } = e.target;
-
         setCoach((prev) => {
             if (["username", "password"].includes(name)) {
-                return {...prev, infoCoachInfo: {...prev.infoCoachInfo, [name]: value}};
+                return {
+                    ...prev,
+                    infoCoachInfo: { ...prev.infoCoachInfo, [name]: value },
+                };
             } else {
-                return {...prev, [name]: value};
+                return { ...prev, [name]: value };
             }
         });
     };
-
-    const [step, setStep] = useState(1);
 
     const handleFirstSubmit = (e) => {
         e.preventDefault();
         localStorage.setItem("username", coach.infoCoachInfo.username);
         localStorage.setItem("password", coach.infoCoachInfo.password);
-        setStep(2); // Passe au formulaire suivant
+        setStep(2);
     };
 
     const submitNewCoach = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8787/clCoach/createCoach", coach)
+        axios
+            .post("http://localhost:8787/clCoach/createCoach", coach)
             .then(() => {
-
-
-                console.log("Saved username", localStorage.getItem("username", coach.infoCoachInfo.username))
-                console.log("Saved password", localStorage.getItem("password", coach.infoCoachInfo.password))
-
-
-                setConnected(true)
-
-                navigate("/DashboardCoach")
-            }).catch((error) => {
-            console.log(error)
-        })
-    }
-
-    const navigate = useNavigate();
+                setConnected(true);
+                navigate("/DashboardCoach");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
 
     return (
+        <>
+            <style>
+                {`.footer{display:none}`}
+            </style>
 
-        <div className="container mt-5">
+            <div className="coach-page">
+                <div className="coach-form-container">
+                    <div className="tab-content">
+                        <div className="tab-pane fade show active" id="pills-coach" role="tabpanel">
+                            {step === 1 ? (
+                                <form onSubmit={handleFirstSubmit}>
+                                    <h1 className="LoginForm">Créer un compte</h1>
 
-            <div className="row justify-content-lg-start">
+                                    <div className="form-outline mb-4">
+                                        <input
+                                            name="username"
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Nom d'utilisateur"
+                                            value={coach.infoCoachInfo.username}
+                                            onChange={setAttribute}
+                                            required
+                                        />
+                                    </div>
 
-                <div className="col-md-6"><h2 className="mb-4">User Information</h2>
-                    {step === 1 ? (
-                        <form className="form-detail" onSubmit={handleFirstSubmit}>
+                                    <div className="form-outline mb-4">
+                                        <input
+                                            name="password"
+                                            type="password"
+                                            className="form-control"
+                                            placeholder="Mot de passe"
+                                            value={coach.infoCoachInfo.password}
+                                            onChange={setAttribute}
+                                            required
+                                        />
+                                    </div>
 
+                                    <button type="submit" className="btn btn-primary btn-block mb-4">
+                                        Suivant
+                                    </button>
+                                </form>
+                            ) : (
+                                <form onSubmit={submitNewCoach}>
+                                    <h1 className="LoginForm">Informations personnelles</h1>
 
-                            <div className="mb-3"><label htmlFor="username" className="form-label text-start d-block">Username</label>
-                                <input type="text" className="form-control"
-                                       name="username" id="username"
-                                       placeholder="Entrer votre username"
-                                       onChange={(e) => setAttribute(e)}
-                                       value={coach.infoCoachInfo.username}/>
-                            </div>
-                            <div className="mb-3"><label htmlFor="password" className="form-label text-start d-block">Password</label>
-                                <input type="text" className="form-control"
-                                       name="password" id="password" placeholder="Créer votre mdp"
-                                       onChange={(e) => setAttribute(e)}
-                                       value={coach.infoCoachInfo.password}/>
-                            </div>
+                                    <div className="form-outline mb-3">
+                                        <input
+                                            name="lname"
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Nom"
+                                            value={coach.lname}
+                                            onChange={setAttribute}
+                                            required
+                                        />
+                                    </div>
 
+                                    <div className="form-outline mb-3">
+                                        <input
+                                            name="fname"
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Prénom"
+                                            value={coach.fname}
+                                            onChange={setAttribute}
+                                            required
+                                        />
+                                    </div>
 
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                                    <div className="form-outline mb-3">
+                                        <input
+                                            name="email"
+                                            type="email"
+                                            className="form-control"
+                                            placeholder="Email"
+                                            value={coach.email}
+                                            onChange={setAttribute}
+                                            required
+                                        />
+                                    </div>
 
-                        </form>
-                    ): (
-                        <form className="form-detail" onSubmit={(e) => submitNewCoach(e)} method="post">
+                                    <div className="form-outline mb-3">
+                                        <input
+                                            name="nbrClient"
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Nombre de clients"
+                                            value={coach.nbrClient}
+                                            onChange={setAttribute}
+                                        />
+                                    </div>
 
-                            <div className="mb-3 "><label htmlFor="lastname" className="form-label text-start d-block">Last
-                                Name</label> <input type="text" className="form-control" name="lname" id="lastname"
-                                                    placeholder="Entrer votre nom"
-                                                    onChange={(e) => setAttribute(e)}
-                                                    value={coach.lname}/>
-                            </div>
+                                    <div className="form-outline mb-3">
+                                        <input
+                                            name="anneeExp"
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Années d'expérience"
+                                            value={coach.anneeExp}
+                                            onChange={setAttribute}
+                                        />
+                                    </div>
 
-                            <div className="mb-3"><label htmlFor="firstname" className="form-label text-start d-block">First
-                                Name</label> <input type="text" className="form-control" name="fname" id="firstname"
-                                                    placeholder="Entrer votre prénom"
-                                                    onChange={(e) => setAttribute(e)}
-                                                    value={coach.fname}/>
-                            </div>
-
-                            <div className="mb-3"><label htmlFor="email"
-                                                         className="form-label text-start d-block">Email</label> <input
-                                type="email" className="form-control" name="email" id="email"
-                                placeholder="Entrer votre email"
-                                required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" onChange={(e) => setAttribute(e)}
-                                value={coach.email}/>
-                            </div>
-
-                            <div className="mb-3"><label htmlFor="nbrClient" className="form-label text-start d-block">
-                                nbrClient
-                            </label> <input type="text" className="form-control" name="nbrClient" id="nbrClient"
-                                            placeholder="Entrez votre nbrClient"
-                                            onChange={(e) => setAttribute(e)}
-                                            value={coach.nbrClient}/>
-                            </div>
-
-                            <div className="mb-3"><label htmlFor="anneeExp"
-                                                         className="form-label text-start d-block">
-                                anneeExp
-                            </label> <input type="text" className="form-control" name="anneeExp" id="anneeExp"
-                                            placeholder="Entrez votre anneeExp"
-                                //required pattern= "\(\d{3}\)\s*\d{3}-\d{4}"
-                                            onChange={(e) => setAttribute(e)}
-                                            value={coach.anneeExp}/>
-                            </div>
-
-
-
-                                <button type="submit" className="btn btn-primary">Submit</button>
-
-
-                        </form>
-
-                        )}
-
-                < /div>
+                                    <button type="submit" className="btn btn-success btn-block mb-4">
+                                        S'inscrire
+                                    </button>
+                                </form>
+                            )}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-)
-
+        </>
+    );
 }
 
 export default Coach;
