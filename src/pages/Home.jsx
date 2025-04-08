@@ -1,7 +1,4 @@
 import React from 'react';
-import Img1 from '../image/GYM.jpg'
-import Img2 from '../image/carou4.jpg'
-import Img3 from '../image/carou5.jpg'
 import Img4 from '../image/carou6.jpg'
 import Img5 from '../image/carou7.jpg'
 import Img6 from '../image/carou8.jpg'
@@ -10,58 +7,21 @@ import Img8 from '../image/cercle2.jpg'
 import Img9 from '../image/cercle3.jpg'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
+import "../css/LandingPage.css";
 
-import Carousel from 'react-bootstrap/Carousel';
-import '../css/caroussel.css';
+
+
 import '../css/page.css';
 
 function Home() {
     return (
         <main role="main">
-            <div id="myCarousel" className="carousel slide" data-bs-ride="carousel" >
-                <ol className="carousel-indicators">
-                    <li data-bs-target="#myCarousel" data-bs-slide-to="0" className="active"></li>
-                    <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
-                    <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
-                </ol>
-                <div className="carousel-inner" >
-                    <div className="carousel-item active" style={{ height: "700px" }}>
-                        <img src={Img1} className="d-block w-100" alt="First slide"/>
-                        <div className="container">
-                            <div className="carousel-caption text-start">
-                                <h1>Des entraînements adaptés à votre niveau et vos objectifs</h1>
-                                <p>Notre algorithme analyse vos besoins et génère un plan d'entraînement personnalisé pour maximiser vos résultats.</p>
-                                <p><a className="btn btn-lg btn-primary" href="#">Commencez dès maintenant</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="carousel-item" style={{ height: "700px" }}>
-                        <img src={Img2} className="d-block w-100" alt="Second slide"/>
-                        <div className="container">
-                            <div className="carousel-caption">
-                                <h1>Optimisez le suivi de vos clients</h1>
-                                <p>Invitez vos clients, créez des plans d'entraînement sur mesure et suivez leur progression en toute simplicité.</p>
-                                <p><a className="btn btn-lg btn-primary" href="#">En savoir plus</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="carousel-item" style={{ height: "700px" }}>
-                        <img src={Img3} className="d-block w-100" alt="Third slide"/>
-                        <div className="container">
-                            <div className="carousel-caption text-end">
-                                <h1>Alimentation et entraînement : le duo gagnant</h1>
-                                <p>Découvrez des suggestions de repas équilibrés en fonction de vos objectifs de performance et de bien-être.</p>
-                                <p><a className="btn btn-lg btn-primary" href="#">Voir les recommandations</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a className="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                </a>
-                <a className="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                </a>
+            <div className="landingPage">
+                <h1>
+                    <span>sweat now</span> shine stronger longer
+                </h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deserunt ducimus eos esse, est exercitationem inventore porro similique tempore totam? Accusamus corporis cupiditate fugit iure, laborum optio provident sit vero.</p>
+                <button>Commencez Maintenant</button>
             </div>
 
             <hr className="featurette-divider mx-auto" style={{width: "50%"}}/>

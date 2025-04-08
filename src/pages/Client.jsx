@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/page.css';
 import  '../css/inscriptionPage.css'
-import Img1 from  '../image/inscriptionImange.jpg';
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Image} from "react-bootstrap";
 
@@ -17,7 +17,7 @@ function Client() {
                                 <div className="col-12 col-md-6 d-flex align-items-center justify-content-center ">
                                     <img
                                         className=""
-                                        src={Img1}
+                                        src=""
                                         alt="Welcome back you've been missed!"
                                         loading="lazy"
                                         style={{borderRadius: "5px",}}
