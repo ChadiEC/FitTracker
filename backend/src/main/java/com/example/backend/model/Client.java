@@ -2,6 +2,7 @@ package com.example.backend.model;
 
 import jakarta.persistence.*;
 
+import java.lang.ScopedValue;
 import java.util.List;
 
 @Entity
@@ -96,6 +97,5 @@ public class Client  {
     @ManyToOne
     @JoinColumn(name = "idCoach")
     Coach coach;
-
 
 }

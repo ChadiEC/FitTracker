@@ -65,7 +65,7 @@ function Coach({ setConnected }) {
                         <div className="tab-pane fade show active" id="pills-coach" role="tabpanel">
                             {step === 1 ? (
                                 <form onSubmit={handleFirstSubmit}>
-                                    <h1 className="LoginForm">Créer un compte</h1>
+                                    <h1 className="LoginForm">Créer un compte coach</h1>
 
                                     <div className="form-outline mb-4">
                                         <input
