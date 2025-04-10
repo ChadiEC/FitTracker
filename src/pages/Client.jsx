@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../css/Client.css"; // ✅ Imported like Connexion.css
+import "../css/Client.css";
 
 function Client({ setConnected }) {
     const [client, setClient] = useState({

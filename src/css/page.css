@@ -1,0 +1,85 @@
+.row2{
+    height: 20vh;
+    background-color:#F5F5F5;
+}
+.row3{
+    height: 75vh;
+    background-color: #A9A9A9;
+}
+.row4{
+    height: 50vh;
+    background-color: #F0F8FF;
+}
+.row5{
+    height: 15vh;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.home {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.row2, .row3, .row4, .row5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+
+
+}
+
+.AboutUs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoSante{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nutrition{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.entrainement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.connexion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.coach{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.client{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.featurette-divider {
+    margin: 5rem 0;
+}
+
+.btn btn-secondary{
+    color: white;
+}

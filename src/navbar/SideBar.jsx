@@ -8,14 +8,8 @@ function SideBar({setConnected}) {
 
 
     return (
-        <div className={`dashboard ${isNavbarOpen ? "nav-open" : ""}`}>
-
-            <button className="menu-toggle" onClick={() => setIsNavbarOpen(!isNavbarOpen)}>
-                <i className="fas fa-bars"></i>
-            </button>
-
-
-            <div className={`dashboard-nav ${isNavbarOpen ? "open" : "closed"}`}>
+        <div>
+            <div className="dashboard-nav open">
                 <header>
                     <a href="#!" className="brand-logo">
                         <i className=""></i> <span>FitTracker</span>

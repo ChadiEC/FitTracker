@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../css/NavBar.css'
 
 function Navbar() {
     return (
@@ -43,11 +44,11 @@ function Navbar() {
                    aria-expanded="false">
                   Inscription
                 </a>
-                <ul class="dropdown-menu">
+                <ul className="dropdown-menu">
                   <li><a className="dropdown-item"><Link to='/Coach'> Sign up as a coach</Link></a></li>
 
                   <li>
-                    <hr class="dropdown-divider"/>
+                    <hr className="dropdown-divider"/>
                   </li>
                   <li><a className="dropdown-item"><Link to='/Client'>Sign up as a client</Link></a></li>
                 </ul>

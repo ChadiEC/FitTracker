@@ -1,4 +1,4 @@
-/* General Page Styles */
+
 .coach-page {
     background-color: #f0f2f5;
     min-height: 100vh;
@@ -74,14 +74,14 @@
     background-color: #218838;
 }
 
-/* Error Message */
+
 .error-message {
     color: red;
     font-size: 0.875rem;
     margin-top: 5px;
 }
 
-/* Footer Links */
+
 .text-center p {
     font-size: 0.875rem;
 }
@@ -95,7 +95,7 @@
     text-decoration: underline;
 }
 
-/* Media Queries */
+
 @media (max-width: 576px) {
     .coach-form-container {
         padding: 20px;

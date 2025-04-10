@@ -1,0 +1,74 @@
+.landingPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('../image/imageLanding.jpg') center/cover;
+}
+
+.landingPage h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.landingPage h1 span {
+    display: block;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+.landingPage p {
+    font-family: 'Open Sans', sans-serif;
+    max-width: 600px;
+    margin-bottom: 30px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.landingPage button {
+
+    height: 60px;
+    background-color: #ff0000;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    padding: 20px;
+    border: none;
+}
+
+.landingPage button:hover {
+
+    transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+    .landingPage h1 {
+        font-size: 4.5rem;
+    }
+
+    .landingPage h1 span {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .landingPage h1 {
+        font-size: 5.5rem;
+    }
+}

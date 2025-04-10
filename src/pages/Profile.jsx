@@ -1,5 +1,6 @@
 import React from 'react';
 import SideBar from "../navbar/SideBar.jsx";
+import '../css/Profile.css';
 
 function Profile({connected, setConnected}) {
     if (!connected) {
