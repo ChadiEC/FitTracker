@@ -22,6 +22,7 @@ import SideBar from "./navbar/SideBar.jsx";
 import MealPlan from "./pages/MealPlan.jsx";
 import Settings from "./pages/Settings.jsx";
 import Workout from "./pages/Workout.jsx";
+import ModifierClient from "./pages/ModifierClient.jsx";
 
 
 
@@ -52,6 +53,7 @@ const [connected,setConnected]=useState(false);
           <Route path='/Entrainement/o1' element={<SousEntrainement1 />} />
           <Route path='/Entrainement/o2' element={<SousEntrainement2 />} />
           <Route path='/Entrainement/o3' element={<SousEntrainement3 />} />
+          <Route path='/ModifierClient' element={<ModifierClient setConnected={setConnected} />} />
           <Route path='/DashboardClient' element={<DashboardClient connected={connected} setConnected={setConnected}/>} />
           <Route path='/DashboardCoach' element={<DashboardCoach connected={connected} setConnected={setConnected}/>} />
           <Route path='/DashboardClient/Profile' element={<Profile connected={connected} setConnected={setConnected}/>} />

@@ -49,4 +49,21 @@ public class ClientController {
 
     }
 
+    @PutMapping("/clientput")
+    Client updateCustomer(@RequestBody Client newOne, @RequestParam String password) {
+        Client c = serviceClient.findByPassword(password);
+                    c.setFname(newOne.getPhoneNumber());
+                    c.setLname(newOne.getEmail());
+                    c.setEmail(newOne.getAddress());
+                    c.setPostalCode(newOne.getPostalCode());
+                    c.getInfoClientInfo().setPassword(newOne.getInfoClientInfo().getPassword());
+                    return serviceClient.saveClient(c);
+
+    }
+
+    @GetMapping("/client/{id}")
+    public Client getCustomerById(@PathVariable Long id) {
+        return serviceClient.findById(id);
+    }
+
 }

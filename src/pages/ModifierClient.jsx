@@ -1,19 +1,26 @@
 import axios from "axios";
 import  { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {data, Link, useNavigate, useParams} from "react-router-dom";
 
-function ModifierClient() {
+
+function ModifierClient({ setConnected }) {
 
     const navigate = useNavigate();
-    const { id } = useParams();
+
 
     const [client, setClient] = useState({
+        fname: "",
+        lname: "",
         email: "",
         address: "",
         phoneNumber: "",
         postalCode: "",
         infoClientInfo: {
+            username: "",
             password: "",
+            age: "",
+            height: "",
+            weight: "",
         },
     });
 
@@ -35,30 +42,123 @@ function ModifierClient() {
         loadUser();
     }, []);
 
-    // const onSubmit = async (e) => {
-    //     try{
-    //         e.preventDefault();
-    //         await axios.put(`http://localhost:8787/cl/customer/${id}`, customer);
-    //         navigate("/");
-    //     }
-    //     catch (error){
-    //         console.error("Err: ", error);
-    //     }
-    // };
-    //
-    // const loadUser = async () => {
-    //     try {
-    //         const result = await axios.get(`http://localhost:8888/reda/customer/${id}`);
-    //         setClient(result.data);
-    //     }
-    //     catch (error){
-    //         console.error("Err: ", error);
-    //     }
-    //
-    // };
+
+    const onSubmit = async (e) => {
+        const password = localStorage.getItem("password");
+        try{
+            e.preventDefault();
+            await axios.put(`http://localhost:8787/cl/clientput?password=${password}`, client);
+
+            navigate("/");
+        }
+        catch (error){
+            console.error("Err: ", error);
+        }
+    };
+
+
+
+
+
+
+     const loadUser = async () => {
+         const password = localStorage.getItem("password");
+
+         axios.get(`http://localhost:8787/cl/getClient?password=${password}`)
+             .then(res => {
+                 setClient(res.data);
+                 console.log(res.data);
+                 setConnected(true);
+
+             });
+     }
+
 
     return (
-        <div></div>
+        <div className="container">
+            <div className="row">
+                <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
+                    <h2 className="text-center m-4">Edit User</h2>
+
+                    <form onSubmit={(e) => onSubmit(e)}>
+                        <div className="mb-3">
+                            <label htmlFor="email" className="form-label">
+                                Email
+                            </label>
+                            <input
+                                type={"text"}
+                                className="form-control"
+                                placeholder="email"
+                                name="email"
+                                value={client.email}
+                                onChange={setAttribute}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="address" className="form-label">
+                                address
+                            </label>
+                            <input
+                                type={"text"}
+                                className="form-control"
+                                placeholder="address"
+                                name="address"
+                                value={client.address}
+                                required
+                                onChange={setAttribute}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="phoneNumber" className="form-label">
+                                phoneNumber
+                            </label>
+                            <input
+                                type={"text"}
+                                className="form-control"
+                                placeholder="phoneNumber"
+                                name="phoneNumber"
+                                value={client.phoneNumber}
+                                onChange={setAttribute}
+                            />
+                        </div>
+
+                        <div className="mb-3">
+                            <label htmlFor="postalCode" className="form-label">
+                                postalCode
+                            </label>
+                            <input
+                                type={"text"}
+                                className="form-control"
+                                placeholder="postalCode"
+                                name="postalCode"
+                                value={client.postalCode}
+                                onChange={setAttribute}
+                            />
+                        </div>
+
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label">
+                                password
+                            </label>
+                            <input
+                                type={"text"}
+                                className="form-control"
+                                placeholder="password"
+                                name="password"
+                                value={client.infoClientInfo.password}
+                                onChange={setAttribute}
+                            />
+                        </div>
+                        <button type="submit" className="btn btn-outline-primary">
+                            Submit
+                        </button>
+                        <Link className="btn btn-outline-danger mx-2" to="/">
+                            Cancel
+                        </Link>
+                    </form>
+                </div>
+            </div>
+        </div>
     );
 }
 

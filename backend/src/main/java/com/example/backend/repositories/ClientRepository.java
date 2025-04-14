@@ -7,4 +7,6 @@ public interface ClientRepository extends JpaRepository<Client,Long> {
     Client findClientsByInfoClientInfo_Username(String username);
 
     Client findClientsByInfoClientInfo_Password(String Password);
+
+    Client findClientByIdClient(Long idClient);
 }

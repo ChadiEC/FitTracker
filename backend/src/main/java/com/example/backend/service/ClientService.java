@@ -29,6 +29,10 @@ public class ClientService {
         return clientRepository.findClientsByInfoClientInfo_Password(password);
     }
 
+    public Client findById(Long id){
+        return clientRepository.findClientByIdClient(id);
+    }
+
     @Autowired
     public ClientService(ClientRepository clientRepository) {
 
