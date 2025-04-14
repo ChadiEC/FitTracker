@@ -1,7 +1,5 @@
 package com.example.backend.service;
 
-
-import com.example.backend.model.Client;
 import com.example.backend.model.Coach;
 
 import com.example.backend.repositories.CoachRepository;
@@ -19,21 +17,22 @@ public class CoachService {
     private final CoachRepository coachRepository;
 
 
-
-
     public Coach saveCoach(Coach coach) {
         return coachRepository.save(coach);
     }
 
     public Coach findByUsername(String username) {
+
         return coachRepository.findCoachByInfoCoachInfo_Username(username);
     }
 
     public Coach findByPassword(String password){
+
         return coachRepository.findCoachByInfoCoachInfo_Password(password);
     }
     @Autowired
     public CoachService(CoachRepository coachRepository) {
+
         this.coachRepository = coachRepository;
     }
 
@@ -47,6 +46,7 @@ public class CoachService {
         return false;
     }
     public List<Coach> findAll(){
+
         return coachRepository.findAll();
     }
 

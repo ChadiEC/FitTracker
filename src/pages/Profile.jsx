@@ -17,6 +17,7 @@ function Profile({connected, setConnected}) {
                 <SideBar setConnected={setConnected}/>
                 <div className="Profile-Card">
 
+
                 </div>
             </div>
         </>

@@ -11,9 +11,9 @@ public class InfoClientInfo {
     private Long idClientInfo;
     private String username;
     private String password;
-    private Long age;
-    private Double weight;
-    private Long height;
+    private String age;
+    private String weight;
+    private String height;
 
     public Client getClient() {
         return client;
@@ -47,27 +47,27 @@ public class InfoClientInfo {
         this.password = password;
     }
 
-    public Long getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(Long age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public Double getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(Double weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 
-    public Long getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(Long height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 

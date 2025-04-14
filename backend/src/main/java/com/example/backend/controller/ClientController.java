@@ -14,39 +14,32 @@ import java.util.List;
 @CrossOrigin
 public class ClientController {
 
-    @Autowired
-    ClientRepository coachRepo;
+
 
     @Autowired
-    ClientRepository repo;
-
-    @Autowired
-    ClientService service;
+    ClientService serviceClient;
 
     @GetMapping("/getAllClients")
     public List<Client> getAll(){
 
-        return repo.findAll();
+        return serviceClient.findAll();
     }
 
     @GetMapping("/getClient")
     public Client getClient(@RequestParam String password){
-        return repo.findClientsByInfoClientInfo_Password(password);
+        return serviceClient.findByPassword(password);
     }
     @PostMapping("/createClient")
     public Client addNewCustomer (@RequestBody Client client){
-        repo.save(client);
         System.out.println("Received client: " + client);
+        serviceClient.saveClient(client);
         return client;
     }
 
 
-   // @GetMapping("/getUser")
-   // public Client getUser(@RequestBody Client client){
-    //}
     @GetMapping("/login")
     public Boolean getUser(@RequestParam String username, @RequestParam String password){
-        if (service.login(username,password)){
+        if (serviceClient.login(username,password)){
             return true;
 
         }
@@ -55,4 +48,5 @@ public class ClientController {
         }
 
     }
+
 }

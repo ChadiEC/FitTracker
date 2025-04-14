@@ -29,8 +29,10 @@ public class CoachController {
 
     @GetMapping("/getCoach")
     public Coach getCoach(@RequestParam String password){
+
         return serviceCoach.findByPassword(password);
     }
+    
     @PostMapping("/createCoach")
     public Coach addNewCoach (@RequestBody Coach coach){
         System.out.println("Received Coach: " + coach);
