@@ -120,6 +120,7 @@ function Connexion({ setConnected }) {
                             <button
                                 type="submit"
                                 className="btn btn-primary btn-block mb-4"
+                                id="loginButton"
                             >
                                 Connexion
                             </button>

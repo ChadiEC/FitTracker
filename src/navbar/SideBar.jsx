@@ -9,7 +9,7 @@ function SideBar({setConnected}) {
 
     return (
         <div>
-            <div className="dashboard-nav open">
+            <div className="dashboard-nav">
                 <header>
                     <a href="#!" className="brand-logo">
                         <i className=""></i> <span>FitTracker</span>

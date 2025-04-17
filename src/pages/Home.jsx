@@ -51,7 +51,7 @@ function Home() {
                    alt="Plan d'entraînement" width="240" height="240"/>
               <h2>Des entraînements adaptés</h2>
               <p>Générez un programme sur mesure en fonction de votre niveau et de vos objectifs.</p>
-              <p><a className="btn btn-secondary" href="#" role="button">Découvrir »</a></p>
+              <p><a className="btn btn-secondary" role="button">Découvrir »</a></p>
             </div>
             <div className="col-lg-4">
               <img className="rounded-circle"
@@ -60,7 +60,7 @@ function Home() {
               <h2>Analysez vos progrès</h2>
               <p>Suivez votre évolution avec des statistiques détaillées et atteignez vos objectifs plus
                 rapidement.</p>
-              <p><a className="btn btn-secondary" href="#" role="button">En savoir plus »</a></p>
+              <p><a className="btn btn-secondary"  role="button">En savoir plus »</a></p>
             </div>
             <div className="col-lg-4">
               <img className="rounded-circle"
@@ -68,7 +68,7 @@ function Home() {
                    alt="Nutrition optimisée" width="240" height="240"/>
               <h2>Une alimentation optimisée</h2>
               <p>Recevez des suggestions de repas adaptés à vos entraînements pour de meilleurs résultats.</p>
-              <p><a className="btn btn-secondary" href="#" role="button">Voir les conseils »</a></p>
+              <p><a className="btn btn-secondary" role="button">Voir les conseils »</a></p>
             </div>
           </div>
 

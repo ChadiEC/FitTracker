@@ -42,9 +42,8 @@ function DashboardClient({ connected,setConnected }) {
                 .footer {display: none;}
             `}</style>
             <div className="Container-Home">
-                <SideBar setConnected={setConnected}/>
-
                 <div className='dashboard-app'>
+                    <SideBar setConnected={setConnected}/>
 
                     <div className="top">
                         <section className="userInfo">
@@ -96,7 +95,6 @@ function DashboardClient({ connected,setConnected }) {
 
 
                     </div>
-                    <div className="bottom"></div>
                 </div>
             </div>
 
