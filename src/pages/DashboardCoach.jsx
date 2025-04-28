@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {useNavigate} from "react-router-dom";
+import {data, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {Button} from "react-bootstrap";
+import '../css/DashboardCoach.css'
+import SideBar from "../navbar/SideBar.jsx";
 
 function DashboardCoach({connected,setConnected}) {
 
@@ -18,18 +20,14 @@ function DashboardCoach({connected,setConnected}) {
 
 
     useEffect(() => {
-
-
-        const username = localStorage.getItem("username")
         const password = localStorage.getItem("password")
 
         axios.get(`http://localhost:8787/clCoach/getCoach?password=${password}`)
             .then(res => {
-
-
-
-
                 setCoach(res.data);
+                console.log(res.data);
+                setConnected(true);
+
 
             })
     },[]);
@@ -37,24 +35,81 @@ function DashboardCoach({connected,setConnected}) {
 
 
 
-    const Logout = (e) =>{
-        setConnected(false)
-        navigate("/Connexion")
-    }
+
 
 
     return (
         <>
+            <style>{`
+                 #root {
+                         max-width: 1280px;
+                         margin: 0 auto;
+                         padding: 2rem;
+                         text-align: center;
+                        }
+                .navbar { display: none; }
+                .footer {display: none;}
+            `}</style>
+            <div className="Container-Home">
+                <div className='dashboard-app'>
+                    <SideBar setConnected={setConnected}/>
 
-            <div>
-                {coach? <h1>Welcome {coach.fname}</h1>: <h1>User Not Found</h1>}
+                    <div className="top">
+                        <section className="userInfo">
+                            <div className="userInfo_TopBar">
+                                <div className="topBar texte">
+                                    {coach ? <h1>Welcome {coach.fname}</h1> : <h1>User Not Found</h1>}
+
+                                </div>
+                            </div>
+                        </section>
+
+                        <section className="cardTop">
+                            <article className="cards_card">
+                                <div className="card_text">
+
+                                </div>
+
+                                <div className="card_icon">
+
+                                </div>
+                            </article>
+                            <article className="cards_card">
+                                <div className="card_text">
+
+
+                                </div>
+                                <div className="card_icon">
+
+                                </div>
+                            </article>
+                            <article className="cards_card">
+                                <div className="card_text">
+
+
+                                </div>
+                                <div className="card_icon">
+
+                                </div>
+                            </article>
+                        </section>
+                        <section className="graphisme">
+                            <article className="left"></article>
+                            <article className="right"></article>
+                        </section>
+
+                        <section className="progress">
+                            <article className=""></article>
+                        </section>
+
+
+                    </div>
+                </div>
             </div>
-            <div>
-                <Button onClick={Logout}>Logout</Button>
-            </div>
+
+
         </>
-    );
-
+    )
 }
 
 export default DashboardCoach;

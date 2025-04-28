@@ -126,9 +126,8 @@ function Connexion({ setConnected }) {
                             </button>
 
                             <div className="text-center">
-                                <p>
-                                    Pas encore membre? Inscrivez vous en tant que{" "}
-                                    <a href="/Coach">coach </a> ou <a href="/Client">client</a>
+                                <p style={{color:"black"}}>
+                                    Pas encore membre? Inscrivez vous en tant que <a href="/Coach">coach </a> ou <a href="/Client">client</a>
                                 </p>
                             </div>
                         </form>
