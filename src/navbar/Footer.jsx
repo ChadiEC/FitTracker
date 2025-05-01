@@ -1,5 +1,7 @@
 import React from 'react';
-
+/*
+* Chadi El-Chami
+* */
 function Footer() {
     return (
         <div className="footer">

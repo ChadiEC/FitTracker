@@ -1,6 +1,8 @@
 import React from 'react';
 import SideBar from "../navbar/SideBar.jsx";
-
+/*
+* Luderson Dominique
+* */
 function Settings({connected, setConnected}) {
     if (!connected) {
         return "Connectez-vous";

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/NavBar.css'
-
+/*
+* Chadi El-Chami
+* */
 function Navbar() {
     return (
         <div className="navbar">

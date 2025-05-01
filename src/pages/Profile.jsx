@@ -1,8 +1,10 @@
 import React from 'react';
 import SideBar from "../navbar/SideBar.jsx";
 import '../css/Profile.css';
-import ModifierClient from "./ModifierClient.jsx";
 
+/*
+* Luderson Dominique
+* */
 function Profile({connected, setConnected}) {
     if (!connected) {
         return "Connectez-vous";
@@ -18,7 +20,7 @@ function Profile({connected, setConnected}) {
                 <SideBar setConnected={setConnected}/>
 
                 <div className="Profile-Card">
-                    <a href="/ModifierClient">Modifier client </a>
+
 
                 </div>
             </div>

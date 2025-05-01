@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
-
+/*
+* Luderson Dominique
+* */
 function SideBar({setConnected}) {
     const [isNavbarOpen, setIsNavbarOpen] = useState(true);
 

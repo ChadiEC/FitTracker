@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../css/Coach.css"; // ✅ Imported like Client.css
-
+import "../css/Coach.css";
+/*
+* Chadi El-Chami
+* */
 function Coach({ setConnected }) {
     const [coach, setCoach] = useState({
         fname: "",

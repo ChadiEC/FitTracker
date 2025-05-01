@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import {Link, useNavigate} from "react-router-dom";
-import { Button } from "react-bootstrap";
 import '../css/DashboardClient.css';
 import SideBar from "../navbar/SideBar.jsx";
 
-// eslint-disable-next-line react/prop-types
+/*
+* Luderson Dominique
+* */
 function DashboardClient({ connected,setConnected }) {
     const [user, setUsers] = useState({});
 

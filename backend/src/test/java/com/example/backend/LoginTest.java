@@ -10,7 +10,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginTest {
-
+    /*
+     * Chadi El-Chami
+     * Luderson Dominique
+     * */
 
     private WebDriver driver = new FirefoxDriver();
 
@@ -20,7 +23,9 @@ public class LoginTest {
     public void setUp(){
         System.setProperty("webdriver.gecko.driver","/data/geckodriver.exe");
     }
-
+    /*
+     * Luderson Dominique
+     * */
     @Test
     public void testLoginForm(){
 
@@ -39,7 +44,9 @@ public class LoginTest {
         String test = "http://localhost/DashboardClient";
         assertEquals(test,driver.getCurrentUrl());
     }
-
+    /*
+     * Chadi El-Chami
+     * */
     @Test
     public void testInscriptionForm(){
 

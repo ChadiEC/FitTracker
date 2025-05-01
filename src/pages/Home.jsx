@@ -7,7 +7,9 @@ import Img8 from '../image/cercle2.jpg'
 import Img9 from '../image/cercle3.jpg'
 import "../css/LandingPage.css";
 
-
+/*
+* Luderson Dominique
+* */
 
 import '../css/page.css';
 import {useNavigate} from "react-router-dom";
