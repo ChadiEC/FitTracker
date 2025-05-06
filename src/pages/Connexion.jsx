@@ -22,9 +22,9 @@ function Connexion({ setConnected }) {
 
     const submitLogin = async (e) => {
         e.preventDefault();
-        let url = "http://localhost:8787/cl/login";
+        let url = "http://10.10.2.104:8789/cl/login";
         if (isCoach) {
-            url = "http://localhost:8787/clCoach/loginCoach";
+            url = "http://10.10.2.104:8789/clCoach/loginCoach";
         }
 
         try {

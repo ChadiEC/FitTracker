@@ -62,7 +62,7 @@ function Client({ setConnected }) {
     const submitNewClient = (e) => {
         e.preventDefault();
         axios
-            .post("http://localhost:8787/cl/createClient", client)
+            .post("http://10.10.2.104:8789/cl/createClient", client)
             .then(() => {
                 setConnected(true);
                 navigate("/DashboardClient");

@@ -23,7 +23,7 @@ function DashboardCoach({connected,setConnected}) {
     useEffect(() => {
         const password = localStorage.getItem("password")
 
-        axios.get(`http://localhost:8787/clCoach/getCoach?password=${password}`)
+        axios.get(`http://10.10.2.104:8789/clCoach/getCoach?password=${password}`)
             .then(res => {
                 setCoach(res.data);
                 console.log(res.data);

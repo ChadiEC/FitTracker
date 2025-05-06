@@ -45,7 +45,7 @@ function Coach({ setConnected }) {
     const submitNewCoach = (e) => {
         e.preventDefault();
         axios
-            .post("http://localhost:8787/clCoach/createCoach", coach)
+            .post("http://10.10.2.104:8789/clCoach/createCoach", coach)
             .then(() => {
                 setConnected(true);
                 navigate("/DashboardCoach");

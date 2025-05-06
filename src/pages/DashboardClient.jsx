@@ -19,7 +19,7 @@ function DashboardClient({ connected,setConnected }) {
     useEffect(() => {
         const password = localStorage.getItem("password");
 
-        axios.get(`http://localhost:8787/cl/getClient?password=${password}`)
+        axios.get(`http://10.10.2.104:8789/cl/getClient?password=${password}`)
             .then(res => {
                 setUsers(res.data);
                 setConnected(true);
